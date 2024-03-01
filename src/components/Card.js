@@ -9,7 +9,7 @@ const Card = ({ card, handleChoice, flipped, disabled }) => {
   };
 
   return (
-    <div className="card">
+    <div className={`card ${card.matched ? 'matched' : ''}`}>
       <div className={flipped ? 'flipped' : ''}>
         <img className="front" src={card.src} alt="card front" />
         <img

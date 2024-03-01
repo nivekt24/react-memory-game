@@ -64,7 +64,6 @@ const App = () => {
     setDisabled(false);
   };
 
-  // restart game
   useEffect(() => {
     handleRestart();
   }, []);

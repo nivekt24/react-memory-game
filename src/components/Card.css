@@ -4,14 +4,15 @@
 }
 .card img {
   width: 100%;
+  height: 100%;
   display: block;
   border: 2px solid #fff;
+  /* box-shadow: 2px 2px 4px 4px #dedede; */
   border-radius: 6px;
 }
 
 /* front of card */
 .card .front {
-  backface-visibility: hidden;
   transform: rotateY(90deg);
   transition: all ease-in 0.2s;
   position: absolute;
@@ -29,4 +30,12 @@
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0s;
+}
+
+.card.matched {
+  transform: rotateY(
+    180deg
+  ); /* Rotate the card by 180 degrees around the Y-axis */
+  opacity: 0; /* Make the card disappear */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Apply transitions for smooth animation */
 }
