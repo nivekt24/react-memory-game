@@ -38,3 +38,19 @@ footer {
   position: relative;
   margin: 0 auto;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #673ab7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* Ensure modal is above overlay */
+}
+
+.modal h2 {
+  margin-top: 0;
+}

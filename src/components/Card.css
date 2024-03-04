@@ -38,4 +38,5 @@
   ); /* Rotate the card by 180 degrees around the Y-axis */
   opacity: 0; /* Make the card disappear */
   transition: transform 0.5s ease, opacity 0.5s ease; /* Apply transitions for smooth animation */
+  pointer-events: none;
 }
