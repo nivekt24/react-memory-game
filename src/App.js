@@ -13,13 +13,13 @@ const cardImages = [
 
 const App = () => {
   const [cards, setCards] = useState([]);
-  const [flips, setFlips] = useState(0);
+  const [moves, setMoves] = useState(0);
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60); // 60 seconds timer
   const [isRunning, setIsRunning] = useState(false);
-  const [showWinModal, setShowWinModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // restartGame
   const handleRestart = () => {
@@ -30,10 +30,10 @@ const App = () => {
     setFirstSelection(null);
     setSecondSelection(null);
     setCards(shuffledCards);
-    setFlips(0);
+    setMoves(0);
     setTimeLeft(30); // Reset time
     setIsRunning(false); // Stop the timer
-    setShowWinModal(false); // Hide win modal
+    setShowModal(false); // Hide modal
   };
 
   // handle a choice
@@ -65,11 +65,11 @@ const App = () => {
     }
   }, [firstSelection, secondSelection]);
 
-  // reset choices & increase flips
+  // reset choices & increase moves
   const resetTurn = () => {
     setFirstSelection(null);
     setSecondSelection(null);
-    setFlips((prevFlips) => prevFlips + 1);
+    setMoves((prevMoves) => prevMoves + 1);
     setDisabled(false);
   };
 
@@ -77,7 +77,7 @@ const App = () => {
   useEffect(() => {
     if (isRunning && timeLeft > 0 && !cards.some((card) => !card.matched)) {
       setIsRunning(false); // Stop the timer if all cards are matched
-      setShowWinModal(true); // Show win modal
+      setShowModal(true); // Show modal
     } else if (isRunning && timeLeft > 0) {
       const timer = setTimeout(() => {
         setTimeLeft((prevTime) => prevTime - 1);
@@ -117,11 +117,11 @@ const App = () => {
       </div>
 
       <footer>
-        <p>Flips: {flips}</p>
+        <p>Moves: {moves}</p>
         <button onClick={handleRestart}>Restart</button>
       </footer>
 
-      {showWinModal && (
+      {showModal && (
         <div className="modal-overlay">
           <div className="modal">
             <h2>You Won!</h2>
